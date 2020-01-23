@@ -4,9 +4,9 @@ import Paddle from "./components/paddle";
 
 export default function App() {
   return (
-    <div className="App">
+    <div className="container">
       <Paddle />
-      <Paddle player-two />
+      <Paddle isPlayerTwo />
     </div>
   );
 }
