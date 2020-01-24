@@ -6,10 +6,10 @@ export default function Ball() {
   const [delta, setDelta] = useState({ x: 5, y: 5 });
   useEffect(() => {
     const handle = setTimeout(() => {
-      if (pos.x + delta.x > 300 - 20 || pos.x + delta.x < 0) {
+      if (pos.x + delta.x > 400 - 20 || pos.x + delta.x < 0) {
         setDelta({ ...delta, x: -delta.x });
       }
-      if (pos.y + delta.y > 400 - 20 || pos.y + delta.y < 0) {
+      if (pos.y + delta.y > 300 - 20 || pos.y + delta.y < 0) {
         setDelta({ ...delta, y: -delta.y });
       }
       setPos({ x: pos.x + delta.x, y: pos.y + delta.y });
