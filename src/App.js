@@ -3,21 +3,38 @@ import "./styles.css";
 import Paddle from "./components/paddle";
 import Ball from "./components/ball";
 export default function App() {
-  let [p1PaddleY, setp1PaddleY] = useState(0);
-  let [p2PaddleY, setp2PaddleY] = useState(0);
+  const [p1PaddleY, setp1PaddleY] = useState(0);
+  const [p2PaddleY, setp2PaddleY] = useState(0);
   function handleKey(event) {
+    const bottomLimit = window.innerHeight - 378;
     switch (event.keyCode) {
       case 87:
-        setp1PaddleY(p1PaddleY - 8);
+        if (p1PaddleY - 8 < 0) {
+          setp1PaddleY(0);
+        } else {
+          setp1PaddleY(p1PaddleY - 8);
+        }
         break;
       case 38:
-        setp2PaddleY(p2PaddleY - 8);
+        if (p2PaddleY - 8 < 0) {
+          setp2PaddleY(0);
+        } else {
+          setp2PaddleY(p2PaddleY - 8);
+        }
         break;
       case 83:
-        setp1PaddleY(p1PaddleY + 8);
+        if (p1PaddleY + 8 > bottomLimit) {
+          setp1PaddleY(bottomLimit);
+        } else {
+          setp1PaddleY(p1PaddleY + 8);
+        }
         break;
       case 40:
-        setp2PaddleY(p2PaddleY + 8);
+        if (p2PaddleY + 8 > bottomLimit) {
+          setp2PaddleY(bottomLimit);
+        } else {
+          setp2PaddleY(p2PaddleY + 8);
+        }
     }
   }
   useEffect(() => {
